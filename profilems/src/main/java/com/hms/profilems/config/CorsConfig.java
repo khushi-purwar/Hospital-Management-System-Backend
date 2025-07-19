@@ -1,4 +1,4 @@
-package com.hms.userms.config;
+package com.hms.profilems.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

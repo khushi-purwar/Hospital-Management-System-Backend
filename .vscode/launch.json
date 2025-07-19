@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProfilemsApplication",
+            "request": "launch",
+            "mainClass": "com.hms.profilems.ProfilemsApplication",
+            "projectName": "profilems"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-GatewaymsApplication<gatewayms>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
