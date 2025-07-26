@@ -2,7 +2,6 @@ package com.hms.profilems.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hms.profilems.dto.PatientDTO;
 import com.hms.profilems.exception.HMSException;
 import com.hms.profilems.repository.PatientRepository;
@@ -14,12 +13,15 @@ public class PatientServiceImplementation implements PatientService{
     private PatientRepository patientRepository;
 
     @Override
-    public void addPatient(PatientDTO patientDTO) throws HMSException {
-        if(patientRepository.existsById(patientDTO.getId())){
+    public Long addPatient(PatientDTO patientDTO) throws HMSException {
+        if(patientDTO.getEmail() !=null &&  patientRepository.findByEmail(patientDTO.getEmail()).isPresent()){
+            throw new HMSException("PATIENT_ALREADY_EXISTS");
+        }
+        if(patientDTO.getAadharNumber() != null && patientRepository.findByAadharNumber(patientDTO.getAadharNumber()).isPresent()){
             throw new HMSException("PATIENT_ALREADY_EXISTS");
         }
 
-        patientRepository.save(patientDTO.toEntity());
+        return patientRepository.save(patientDTO.toEntity()).getId();
     }
 
     @Override

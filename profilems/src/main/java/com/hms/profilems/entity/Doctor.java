@@ -3,6 +3,7 @@ package com.hms.profilems.entity;
 import java.time.LocalDate;
 import com.hms.profilems.dto.DoctorDTO;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
