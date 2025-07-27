@@ -12,12 +12,10 @@ import com.hms.profilems.dto.PatientDTO;
 import com.hms.profilems.exception.HMSException;
 import com.hms.profilems.service.PatientService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 @RestController
 @CrossOrigin
@@ -37,5 +35,9 @@ public class PatientController {
     public ResponseEntity<PatientDTO> getPatient(@PathVariable Long id) throws HMSException{
         return new ResponseEntity<>(patientService.getPatientById(id), HttpStatus.OK);
     }
-    
+
+    @PutMapping("/update")
+    public ResponseEntity<PatientDTO> updatePatient(@RequestBody PatientDTO patientDTO) throws HMSException {
+        return new ResponseEntity<>(patientService.updatePatient(patientDTO), HttpStatus.OK);
+    }
 }

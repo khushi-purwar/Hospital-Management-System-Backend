@@ -3,6 +3,7 @@ package com.hms.profilems.service;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.hms.profilems.dto.DoctorDTO;
+import com.hms.profilems.dto.PatientDTO;
 import com.hms.profilems.exception.HMSException;
 import com.hms.profilems.repository.DoctorRepository;
 
@@ -28,6 +29,12 @@ public class DoctorServiceImplementation implements DoctorService{
     @Override
     public DoctorDTO getDoctorById(Long id) throws HMSException {
         return doctorRepository.findById(id).orElseThrow(() -> new HMSException("DOCTOR_NOT_FOUND")).toDTO();
+    }
+
+    @Override
+    public DoctorDTO updateDoctor(DoctorDTO doctorDTO) throws HMSException {
+        doctorRepository.findById(doctorDTO.getId()).orElseThrow(() -> new HMSException("DOCTOR_NOT_FOUND"));
+        return doctorRepository.save(doctorDTO.toEntity()).toDTO();
     }
     
 }
