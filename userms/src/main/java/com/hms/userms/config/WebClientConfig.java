@@ -1,6 +1,5 @@
 package com.hms.userms.config;
 
-import com.hms.userms.service.ApiService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
