@@ -27,6 +27,7 @@ public class MyUserDetailsService implements UserDetailsService {
                 dto.getRole(),
                 dto.getName(),
                 dto.getEmail(),
+                dto.getProfileId(),
                 null
                 
             );
